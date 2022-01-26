@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authors</title>
-    <style>
-        main{
-            width:50%;
-            margin:0 auto;
+<?php 
+    include "includes/dbConnection.php";
+    $pageTitle = "Authors";
+    include "includes/header.php";
+?>
+
+        <?php
+
+        $sql = "SELECT * FROM authors";
+
+        $result = $conn->query($sql);
+        ?> 
+        <h3>List of Authors</h3>
+        <?php
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "ID: " . $row['id'] . " " . $row['first_name'] . " " . $row['last_name'] . "<br>"
+                    . "Email: " . $row['email'] . " Added: " . $row['added_on'] . "<br><hr>";
+            }
         }
-    </style>
-</head>
-<body>
-    <main>
-        <!-- PHP CODE goes in here -->
-    </main>
-</body>
-</html>
+        ?>
+<?php include "includes/footer.php"; ?>

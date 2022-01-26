@@ -1,6 +1,6 @@
 <?php 
     include "includes/dbConnection.php";
-    $pageTitle = "Posts";
+    $pageTitle = "Home";
     include "includes/header.php";
 ?>
 
